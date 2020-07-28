@@ -21,10 +21,12 @@ export const ExtraLink = styled.a`
   margin-left: 16px;
   text-decoration: none;
   transition: opacity .3s;
+
   &:hover,
   &:focus {
     opacity: .5;
   }
+
   @media (max-width: 800px) {
     display: block;
     margin-bottom: 16px;
@@ -44,11 +46,28 @@ export const VideoCardList = styled.ul`
   li {
     margin-right: 16px;
   }
+
+  /* Scroll bar styles */
+  ::-webkit-scrollbar {
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #424242;
+    border-radius: 25px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #262626;
+    border-radius: 25px; 
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #202020; 
+  }
 `;
 
 export const VideoCardGroupContainer = styled.section`
   color: white;
   min-height: 197px;
   margin-left: 5%;
+  margin-right: 5%;
   margin-bottom: 16px;
 `;
