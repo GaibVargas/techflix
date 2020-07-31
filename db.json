@@ -40,6 +40,12 @@
         "text": "Formação de Jogos na Alura",
         "url": "https://www.alura.com.br/cursos-online-front-end"
       }
+    },
+    {
+      "titulo": "Cansei",
+      "descricao": "Cansei mesmo",
+      "cor": "#670981",
+      "id": 6
     }
   ],
   "videos": [
@@ -186,6 +192,18 @@
       "categoriaId": 5,
       "titulo": "Resident Evil 8",
       "url": "https://www.youtube.com/watch?v=JSapXD9vxYA"
+    },
+    {
+      "titulo": "Video padrão",
+      "url": "https://www.youtube.com/watch?v=jOAU81jdi-c",
+      "categoriaId": 1,
+      "id": 25
+    },
+    {
+      "titulo": "Cansei muito",
+      "url": "https://www.youtube.com/watch?v=60ItHLz5WEA",
+      "categoriaId": 6,
+      "id": 26
     }
   ]
 }

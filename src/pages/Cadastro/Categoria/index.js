@@ -3,29 +3,19 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
+import categoriasRepository from '../../../repositories/categorias';
 
 function CadastroCategoria() {
   const valoresIniciais = {
-    nome: '',
+    titulo: '',
     descricao: '',
     cor: '',
   };
+
+  const { handleChange, values, clearForm } = useForm(valoresIniciais);
+
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(valoresIniciais);
-
-  function setValue(chave, valor) {
-    setValues({
-      ...values,
-      [chave]: valor,
-    });
-  }
-
-  function handleChange(infosDoEvento) {
-    setValue(
-      infosDoEvento.target.getAttribute('name'),
-      infosDoEvento.target.value,
-    );
-  }
 
   useEffect(() => {
     const URL = window.location.hostname.includes('localhost') ? 'http://localhost:8080/categorias' : 'https://techflix-backend.herokuapp.com/categorias';
@@ -42,26 +32,28 @@ function CadastroCategoria() {
       <div style={{ padding: 50, paddingTop: 0 }}>
         <h1>
           Cadastro de Categoria:
-          {values.nome}
+          {values.titulo}
         </h1>
 
         <form onSubmit={function handleSubmit(infosDoEvento) {
           infosDoEvento.preventDefault();
+
+          categoriasRepository.createCategory(values);
 
           setCategorias([
             ...categorias,
             values,
           ]);
 
-          setValues(valoresIniciais);
+          clearForm();
         }}
         >
 
           <FormField
             label="Nome da Categoria"
             type="text"
-            name="nome"
-            value={values.nome}
+            name="titulo"
+            value={values.titulo}
             onChange={handleChange}
           />
 
